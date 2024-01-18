@@ -33,7 +33,7 @@ export class CreateComponent {
       .subscribe((categories) => (this.categoryList = categories)); // callApi.then(cb fuc)
   }
   handleSubmit() {
-    console.log(this.productAdd);
+    // console.log(this.productAdd);
     this.productService
       .createProduct(this.productAdd)
       .subscribe(() => this.router.navigate(['/admin/products']));
