@@ -4,7 +4,12 @@
       { "id": "2", "title": "another title" }
     ],
     "users": [
-      { "id": "1", "text": "a comment about post 1", "postId": "1" },
+      { 
+        "id": "1",
+        "fullname": "vietanh"
+
+
+     },
       { "id": "2", "text": "another comment about post 1", "postId": "1" }
     ]
   }

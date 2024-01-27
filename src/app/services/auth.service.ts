@@ -11,12 +11,12 @@ export class AuthService {
 
   register(user:any):Observable<User>{
     // return data.find(item => item.id == id)
-    return this.http.post<User>(`${this.API_URL}/signup`,user)
+    return this.http.post<User>(`${this.API_URL}/register`,user)
   }
 
   login(user:any):Observable<User>{
     
-      return this.http.post<User>(`${this.API_URL}/signin`,user)
+      return this.http.post<User>(`${this.API_URL}/login`,user)
     
   }
 }

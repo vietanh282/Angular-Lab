@@ -12,21 +12,26 @@ export class UserService {
   // }
   register(user:any):Observable<User>{
     // return data.find(item => item.id == id)
-    return this.http.post<User>(`${this.apiAdminUrl}/signup`,user)
+    return this.http.post<User>(`${this.API_URL}/login`,user)
   }
-  apiAdminUrl = 'https://hoadv-nodejs.vercel.app/students'; // khai bao apiUrl
+  login(user:any):Observable<User>{
+    
+    return this.http.post<User>(`${this.API_URL}/signin`,user)
+  
+}
+  API_URL = 'http://localhost:3000' // khai bao apiUrl
   http = inject(HttpClient); // inject bien http
 
   constructor() {}
 
   getUserListAdmin(seacrh?: string): Observable<UserResponse> {
     const apiUrl = seacrh
-      ? `${this.apiAdminUrl}?search=${seacrh}`
-      : this.apiAdminUrl;
+      ? `${this.API_URL}?search=${seacrh}`
+      : this.API_URL;
     return this.http.get<UserResponse>(apiUrl); //axios.get(apiUrl)
   }
 
   deleteUser(id: string) {
-    return this.http.delete(`${this.apiAdminUrl}/${id}`);
+    return this.http.delete(`${this.API_URL}/${id}`);
   }
 }
