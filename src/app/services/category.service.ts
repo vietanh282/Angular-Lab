@@ -8,6 +8,7 @@ import { Category } from '../types/Category';
 })
 export class CategoryService {
   apiAdminUrl = 'https://hoadv-nodejs.vercel.app/categories'; // khai bao apiUrl
+  // API_URL = 'http://localhost:3000'
   http = inject(HttpClient); // inject bien http
 
   constructor() {}

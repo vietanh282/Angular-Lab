@@ -10,6 +10,7 @@ export class ProductService {
   // call api
   apiUrl = 'https://fakestoreapi.com/products';
   apiAdminUrl = 'https://hoadv-nodejs.vercel.app/api/products'; // khai bao apiUrl
+  // API_URL = 'http://localhost:3000'
 
   http = inject(HttpClient); // inject bien http
   constructor() {}

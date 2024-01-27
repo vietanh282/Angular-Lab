@@ -17,6 +17,7 @@
     >
       <tr>
         <th scope="col" class="px-6 py-3">Product name</th>
+        <th scope="col" class="px-6 py-3">Image</th>
         <th scope="col" class="px-6 py-3">Description</th>
         <th scope="col" class="px-6 py-3">Category</th>
         <th scope="col" class="px-6 py-3">Price</th>
@@ -35,6 +36,7 @@
           {{ product.title }}
         </th>
         <!-- truncateDescription(120) -->
+        <td class="px-6 py-4">{{ product.image }}</td>
         <td class="px-6 py-4">{{ product.description | description : 120 }}</td>
         <td class="px-6 py-4">{{ product.category.title }}</td>
         <td class="px-6 py-4">${{ product.price }}</td>

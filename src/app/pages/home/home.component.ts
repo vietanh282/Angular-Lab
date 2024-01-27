@@ -23,4 +23,25 @@ export class HomeComponent {
       .subscribe((products) => (this.productList = products)); // callApi.then(cb fuc)
   }
   //contruct
+  ngDoCheck() {
+    console.log('3 -ngDoCheck');
+  }
+
+  ngAfterContentInit() {
+    console.log('4 -ngAfterContentInit');
+  }
+
+  ngAfterContentChecked() {
+    console.log('5 -ngAfterContentChecked');
+  }
+
+  ngAfterViewInit() {
+    console.log('6 -ngAfterViewInit');
+  }
+  ngAfterViewChecked() {
+    console.log('7 -ngAfterViewChecked');
+  }
+  ngOnDestroy() {
+    console.log('8- ngOnDestroy');
+  }
 }
