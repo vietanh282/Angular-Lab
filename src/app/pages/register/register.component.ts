@@ -1,9 +1,9 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { UserService } from '../../services/user.service';
+import {  } from '../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../../types/User';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -19,9 +19,8 @@ export class RegisterComponent {
     password: '',
     confirmPassword: '',
   };
-  users!: User[];
   constructor(
-    private userService: UserService,
+    private userService: AuthService,
     private route:Router,
     private activeRoute: ActivatedRoute
   ) { }
@@ -32,9 +31,13 @@ export class RegisterComponent {
     // validate required all + email, password  === confirmPassword
     // call api register user
     try {
-      console.log(this.users);
+      const user = {
+        fullname: this.registerUser.fullname,
+        email: this.registerUser.email,
+        password: this.registerUser.password
+      }
       // call service userSerive register
-        this.userService.register(this.users).subscribe(() => {
+        this.userService.register(user).subscribe(() => {
         alert("Register Successfully !");
        
         //chuyển hướng tới login

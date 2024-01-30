@@ -6,10 +6,11 @@ import { User } from '../types/User';
   providedIn: 'root',
 })
 export class AuthService {
-  API_URL = 'http://localhost:3000'
+  API_URL = 'https://hoadv-nodejs.vercel.app/auth'
   constructor(private http: HttpClient) { }
 
   register(user:any):Observable<User>{
+    console.log (user)
     // return data.find(item => item.id == id)
     return this.http.post<User>(`${this.API_URL}/register`,user)
   }

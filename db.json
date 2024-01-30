@@ -7,9 +7,6 @@
       { 
         "id": "1",
         "fullname": "vietanh"
-
-
-     },
-      { "id": "2", "text": "another comment about post 1", "postId": "1" }
+     }
     ]
   }

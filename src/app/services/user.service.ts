@@ -7,31 +7,25 @@ import { User, UserResponse } from '../types/User';
   providedIn: 'root',
 })
 export class UserService {
-  // register(user: User) {
+  // login(registerUser: { email: string; password: string; }) {
   //   throw new Error('Method not implemented.');
   // }
-  register(user:any):Observable<User>{
-    // return data.find(item => item.id == id)
-    return this.http.post<User>(`${this.API_URL}/login`,user)
-  }
-  login(user:any):Observable<User>{
-    
-    return this.http.post<User>(`${this.API_URL}/signin`,user)
-  
-}
-  API_URL = 'http://localhost:3000' // khai bao apiUrl
+  apiAdminUrl = 'https://hoadv-nodejs.vercel.app/students'; // khai bao apiUrl
   http = inject(HttpClient); // inject bien http
 
-  constructor() {}
-
-  getUserListAdmin(seacrh?: string): Observable<UserResponse> {
-    const apiUrl = seacrh
-      ? `${this.API_URL}?search=${seacrh}`
-      : this.API_URL;
-    return this.http.get<UserResponse>(apiUrl); //axios.get(apiUrl)
+  getUserListAdmin(
+    searchText?: string,
+    page?: number
+  ): Observable<UserResponse> {
+    // const apiUrl = searchText
+    //   ? `${this.apiAdminUrl}?search=${searchText}`
+    //   : this.apiAdminUrl;
+    const apiUrl = page ? `${this.apiAdminUrl}?page=${page}` : this.apiAdminUrl;
+    // const apiUrl = `${this.apiAdminUrl}?search=${searchText}&page=${page}`;
+    return this.http.get<UserResponse>(apiUrl);
   }
 
   deleteUser(id: string) {
-    return this.http.delete(`${this.API_URL}/${id}`);
+    return this.http.delete(`${this.apiAdminUrl}/${id}`);
   }
 }
