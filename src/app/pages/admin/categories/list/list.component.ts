@@ -23,7 +23,15 @@ export class ListComponent {
       .subscribe((categories) => (this.categoryList = categories)); // callApi.then(cb fuc)
   }
   handleDeleteProduct(id: string) {
-    if (window.confirm('Do you really remove product?')) {
+    if (window.confirm('Do you really remove category?')) {
+      this.categoryService
+        .deleteCategoryById(id)
+        .subscribe(
+          () =>
+            (this.categoryList = this.categoryList.filter(
+              (product) => product._id !== id
+            ))
+        );
     }
   }
 }

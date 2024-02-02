@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core'; // inject
 import { HttpClient } from '@angular/common/http'; // HttpClient
 import { Observable } from 'rxjs';
-import { Category, CategoryAdd } from '../types/Category';
+import { Category, CategoryAdd, CategoryAdmin } from '../types/Category';
 import { Product } from '../types/Product';
 
 @Injectable({
@@ -18,7 +18,16 @@ export class CategoryService {
     return this.http.get<Category[]>(this.apiAdminUrl); //axios.get(apiUrl)
     }
 
-    createCategory(product: CategoryAdd) {
-      return this.http.post<Product>(this.apiAdminUrl, product);
+    createCategory(categories: CategoryAdd) {
+      return this.http.post<Category>(this.apiAdminUrl, categories);
+    }
+    deleteCategoryById(id: string) {
+      return this.http.delete(`${this.apiAdminUrl}/${id}`);
+    }
+    updateCategoryById(categories: CategoryAdd, id: string) {
+      return this.http.put<Category>(`${this.apiAdminUrl}/${id}`, categories);
+    }
+    getDetailCategoryById(id: string) {
+      return this.http.get<CategoryAdmin>(`${this.apiAdminUrl}/${id}`);
     }
 }

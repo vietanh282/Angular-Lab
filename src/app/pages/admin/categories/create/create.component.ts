@@ -15,7 +15,12 @@ import { Category } from '../../../../types/Category';
 export class CreatecateComponent {
   categoryService = inject(CategoryService); // inject vao bien
   router = inject(Router);
- 
+  categoryAdd = {
+    title: '',
+    description: '',
+    slug: ''
+  };
+  
   categoryList: Category[] = [];
 
   ngOnInit(): void {
@@ -24,10 +29,9 @@ export class CreatecateComponent {
       .subscribe((categories) => (this.categoryList = categories)); // callApi.then(cb fuc)
   }
   handleSubmit() {
-    // console.log(this.productAdd);
-    // this.categoryService
-    //   .createCategory(this.CategoryAdd)
-    //   .subscribe(() => this.router.navigate(['/admin/category']));
-    // call service api POST products
+    console.log(this.categoryAdd);
+    this.categoryService
+    .createCategory(this.categoryAdd)
+    .subscribe(() => this.router.navigate(['admin/categories/list']));
   }
 }

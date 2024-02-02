@@ -9,5 +9,12 @@ export type Category = {
     updatedAt: string;
   };
   export type CategoryAdd = {
-    rate: number;
+    title: string;
+    description: string;
+    slug: string
   };
+
+export type CategoryAdmin = Omit<Category, 'id' > & {
+  _id: string;
+  category: string;
+};

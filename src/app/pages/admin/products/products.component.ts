@@ -28,14 +28,14 @@ export class ProductsComponent {
   //   console.warn(id)
   // }
   handleDeleteProduct(id: string) {
-    if (window.confirm('Do you really remove product?')) {
+    if (window.confirm('Do you really remove Products?')) {
       this.productService
         .deleteProductById(id)
         .subscribe(
           () =>
-            (this.productList = this.productList.filter(
-              (product) => product._id !== id
-            ))
+          (this.productList = this.productList.filter(
+            (product) => product._id !== id
+          ))
         );
     }
   }
